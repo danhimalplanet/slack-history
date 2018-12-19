@@ -27,6 +27,7 @@ func writeHistory(history *slack.History, csvWriter *csv.Writer, onlyBots bool) 
 		}
 
 		text := m.Text
+		/*
 		if m.File != nil {
 			//log.Printf("%#v", m.File)
 			//out, err := ioutil.ReadAll(*m.File)
@@ -39,7 +40,7 @@ func writeHistory(history *slack.History, csvWriter *csv.Writer, onlyBots bool) 
 			text += `\n`
 			text += sanitizeNewLines(m.File.Preview)
 		}
-
+                */
 		if len(m.Attachments) > 0 {
 			for _, attachment := range m.Attachments {
 				text += `\n`
@@ -72,7 +73,7 @@ func main() {
 	start := flag.String("start", "2017-06-01T00:00:00-07:00", "Start Time in ISO8601")
 	end := flag.String("end", "", "End Time in ISO8601 (default is current time)")
 	channel := flag.String("channel", "devops", "Channel Name to get logs for")
-	filePath := flag.String("write", "output.csv", "where to output the file")
+	//filePath := flag.String("write", "output.csv", "where to output the file")
 	bots := flag.Bool("bots", false, "only print bot messages")
 	flag.Parse()
 	token := os.Getenv("SLACK_TOKEN")
@@ -95,7 +96,8 @@ func main() {
 		}
 		//fmt.Printf("Channel: %#v\n", channel)
 	}
-
+        historySaveFile := channelID + ".csv"
+	filePath := flag.String("write", historySaveFile, "where to output the file")
 	if channelID == "" {
 		log.Fatalf("Cannot find a channel with name %s", *channel)
 	}
