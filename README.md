@@ -1,6 +1,7 @@
 # Get slack history
 
 * install golang
+
 ``brew install golang``
 
 I wrote this to import training data from slack channels for some NLP-like stuff
