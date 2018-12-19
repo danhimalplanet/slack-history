@@ -4,10 +4,12 @@ install golang
 
 ``brew install golang``
 
-I wrote this to import training data from slack channels for some NLP-like stuff
+get Slack token
 
-expects `SLACK_TOKEN` environment variable
+set SLACK_TOKEN environment variable (put a space before 'export' to keep it out of your shell history)
 
-go run slack-history.go -start 2018-04-18T00:00:00Z -end 2018-08-02T00:00:00Z -channel "general"
+`` export SLACK_TOKEN="xoxb-24530992559-48910202342365-MFkc2sadfguHKm5GGOj5YSGfg4s"``
 
-this will search in past and dump everything as an output.csv file
+save contents of 'cats' channel from 2011-04-18 till now to a csv file.  the csv file name will be the slackID of the channel
+
+``go run slack-history.go -start 2011-04-18T00:00:00Z -channel "cats"``
