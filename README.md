@@ -1,6 +1,6 @@
 # Get slack history
 
-* install golang
+install golang
 
 ``brew install golang``
 
