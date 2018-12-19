@@ -1,4 +1,6 @@
-# Get slack history
+# save history of slack channel to csv file
+
+clone repo
 
 install golang
 
